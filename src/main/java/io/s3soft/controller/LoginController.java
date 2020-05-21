@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import io.s3soft.api.consumer.User;
 import io.s3soft.api.consumer.UserApiConsumer;
 import io.s3soft.dto.UserDto;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
+@CrossOrigin(origins = "*", allowedHeaders = "*",methods = {RequestMethod.DELETE,
+		                 RequestMethod.GET,RequestMethod.PUT,RequestMethod.POST})
 public class LoginController {
 	@Autowired
 	private UserApiConsumer userApiConsumer;
