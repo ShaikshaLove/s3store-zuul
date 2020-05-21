@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<title>S3RICE</title>
+<style type="text/css">
+#sign-in {
+	padding-top: 100px;
+}
+</style>
+</head>
+<body>
+	<header>
+		<nav class="nav navbar">
+		    
+			<h4 class="nav-brand"><img alt="" src="images/shop.png" width="50px" height="40px">S3store</h4>
+		</nav>
+	</header>
+	<main>
+		<div class="container">
+
+
+
+			<div id="sign-in" class="row justify-content-center">
+
+				<div class="col-lg-auto">
+					<div class="alert alert-danger text-center" th:if="${authError}">
+						<strong th:text="${authError}"></strong>
+					</div>
+
+					<div class="alert text-center alert-success" th:if="${logout}">
+						<strong th:text="${logout}"></strong>
+					</div>
+					<form action="/perform-auth" method="post">
+						<label class="text-secondary">USERNAME</label> <input type="text"
+							class="form-control" name="user-name"> <label
+							class="text-secondary">PASSWORD</label><input type="password"
+							class="form-control" name="password"><br>
+						<button class="btn btn-success btn-block" type="submit">Log
+							In</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer> </footer>
+</body>
+</html>

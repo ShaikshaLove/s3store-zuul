@@ -1,0 +1,23 @@
+server:
+  port: 9091
+
+zuul:
+  routes:
+    users:
+      path: /myusers/**
+      url: https://s3-registration-service.herokuapp.com/users
+    products:
+     path: /products/**
+     url: https://product-sevice.herokuapp.com/product-service/api/v1/products
+    orders:
+     path: /orders/**
+     url: https://s3order-service.herokuapp.com/api/orders
+    customers:
+     path: /customers/**
+     url: https://s3order-service.herokuapp.com/api/customers
+    carts:
+     path: /mycart/**
+     url: https://s3storecart.herokuapp.com/api/cart
+     
+  host:    connect-timeout-millis: 100000
+    socket-timeout-millis: 100000
